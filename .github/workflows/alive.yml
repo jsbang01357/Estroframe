@@ -1,0 +1,14 @@
+name: Streamlit Keep-Alive Bot
+
+on:
+  schedule:
+    # 10시간마다 실행 (분 시 일 월 요일)
+    - cron: '0 */10 * * *'
+  workflow_dispatch: # 수동으로도 실행 가능하게 설정
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Visit Streamlit Site
+        run: curl -I https://estroframe.streamlit.app
